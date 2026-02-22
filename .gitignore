@@ -1,0 +1,31 @@
+# Stage outputs (per-run artifacts, not part of the workspace definition)
+**/stages/*/output/*
+!**/stages/*/output/.gitkeep
+
+# Workspace-builder stage outputs (intermediate build artifacts)
+workspaces/workspace-builder/stages/*/output/*
+!workspaces/workspace-builder/stages/*/output/.gitkeep
+
+# Claude Code local settings
+.claude/
+
+# Node dependencies
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/settings.json
+
+# Environment files
+.env
+.env.local
+
+# Cloned reference repos (local only)
+*-ref/
