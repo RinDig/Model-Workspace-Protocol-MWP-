@@ -124,29 +124,13 @@ If you find yourself writing more than a one-sentence description in a CONTEXT.m
 
 ## Pattern 7: Tool Prerequisites
 
-Some stages require external tools to function (Remotion for video code, ffmpeg for rendering, Python for data processing, etc.). MWP handles this with a `prerequisites/` folder at the workspace root.
+Some stages require external tools (Node.js, LibreOffice, ffmpeg, etc.). Setup guides for these tools live in the `references/` folder of the stage that uses them (e.g., `stages/03-build/references/remotion-setup.md`).
 
-```
-workspace/
-├── prerequisites/
-│   ├── CONTEXT.md           (lists all tools, which stages need them, and whether each is required or optional)
-│   └── [tool-name]-setup.md (one setup guide per tool)
-```
+Setup guides are written for someone who has never installed the tool: what it is (one sentence), installation steps, how to verify it works, and how the workspace uses it.
 
-**prerequisites/CONTEXT.md** is a routing file (Pattern 6 applies). It contains a table:
+If a tool is needed by multiple stages, it can live in `shared/` instead. The `setup` onboarding process should check which tools are needed based on the user's answers and point them to the right setup guide.
 
-```
-| Tool | Required By | Required/Optional | Setup Guide |
-|------|-------------|-------------------|-------------|
-| Remotion | Stage 03 | Optional | remotion-setup.md |
-| Node.js | Stage 03 | Required (if using Remotion) | remotion-setup.md |
-```
-
-**Setup guides** are written for someone who has never installed the tool. They include: what the tool is (one sentence), prerequisites, installation steps, how to verify it works, and how the workspace uses it.
-
-The `setup` onboarding process should check which tools are needed based on the user's answers. If a user skips a stage that requires a tool, the tool's setup guide is irrelevant and the agent should not mention it.
-
-Tool setup guides can also live in stage-specific `references/` folders (e.g., `stages/03-build/references/remotion-setup.md`) if the tool is only used by one stage. The prerequisites/CONTEXT.md table should still reference it for discoverability.
+Note: When a workspace bundles skills (Pattern 9), many tools that would have needed separate prerequisites (scripts, libraries, utilities) come bundled inside the skill folder. Only tools that require system-level installation (Node.js, Python, LibreOffice) still need setup guides.
 
 ---
 
@@ -194,6 +178,40 @@ Onboarding questionnaires configure the production system, not a specific run. T
 6. **Ask once, never again.** After setup, the user should never see these questions again. The answers are baked into the workspace files permanently.
 
 The questionnaire template at `_core/templates/questionnaire-template.md` encodes these rules.
+
+---
+
+## Pattern 9: Bundled Skills
+
+Workspaces can bundle Claude Code skills directly into a `skills/` folder. This gives agents domain-specific knowledge (APIs, best practices, code examples) without requiring the user to have the skills installed globally.
+
+```
+workspace/
+├── skills/
+│   ├── [skill-name]/          (copied from ~/.claude/skills/ or cloned from GitHub)
+│   │   ├── SKILL.md           (skill entry point)
+│   │   ├── rules/             (detailed rule files, if any)
+│   │   └── scripts/           (utility scripts, if any)
+│   └── [another-skill]/
+│       └── SKILL.md
+```
+
+**Discovery:** During workspace building (Stage 01), the builder identifies relevant skills by:
+1. Scanning `~/.claude/skills/` and `~/.agents/skills/` for locally installed skills
+2. Searching GitHub for skill repos matching the workspace domain (e.g., "remotion skill", "pptx skill")
+3. Presenting candidates to the user for selection
+
+**Bundling:** Selected skills are copied (local) or cloned (GitHub) into the workspace's `skills/` folder during scaffolding (Stage 03). This makes the workspace self-contained.
+
+**Referencing:** Stage CONTEXT.md files reference skills in their Inputs table:
+
+```
+| Skill | `../../skills/[name]/SKILL.md` | Index, then load rules as needed | [What it provides] |
+```
+
+Skills replace custom reference docs when an official skill covers the same ground. Keep workspace-specific files (design systems, brand config, build conventions) alongside skills, not inside them.
+
+**When NOT to bundle:** Do not bundle skills that are purely about Claude Code itself (e.g., skill-creator, mcp-builder). Only bundle skills that provide domain knowledge the workspace's agents need at runtime.
 
 ---
 

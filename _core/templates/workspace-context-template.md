@@ -16,3 +16,4 @@
 |----------|----------|----------|
 | [Context folder] | `[folder]/CONTEXT.md` | [What it routes to] |
 | [Shared files] | `shared/` | [What cross-stage files live here] |
+| [Skill name] | `skills/[name]/SKILL.md` | [What domain knowledge this skill provides] |

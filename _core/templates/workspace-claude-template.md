@@ -9,6 +9,7 @@
 ├── CLAUDE.md          (you are here)
 ├── CONTEXT.md         (start here for task routing)
 ├── setup/             (onboarding questionnaire)
+├── skills/            (bundled Claude skills for domain knowledge)
 ├── [context-folder]/  (shared context files)
 ├── stages/
 │   ├── 01-[name]/     ([brief description])

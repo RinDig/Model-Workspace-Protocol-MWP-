@@ -22,7 +22,9 @@ The most important conventions for building a new workspace:
 
 - **CONTEXT.md = routing only**: No definitions, rules, or extended content in CONTEXT.md files. See "Pattern 6: CONTEXT.md = Routing, Not Content" in `/_core/CONVENTIONS.md`.
 
-- **Tool prerequisites**: If stages need external tools, create a prerequisites/ folder with a CONTEXT.md listing all tools and setup guides for each. See "Pattern 7: Tool Prerequisites" in `/_core/CONVENTIONS.md`.
+- **Tool prerequisites**: If stages need system-level tools (Node.js, Python, LibreOffice), write setup guides in the relevant stage's references/ folder. See "Pattern 7: Tool Prerequisites" in `/_core/CONVENTIONS.md`.
+
+- **Bundled skills**: Copy relevant Claude Code skills into skills/ folder. Skills provide domain knowledge (APIs, best practices, code examples) and can replace custom reference docs. Discover local skills and search GitHub during Stage 01. See "Pattern 9: Bundled Skills" in `/_core/CONVENTIONS.md`.
 
 - **Placeholder syntax**: `{{SCREAMING_SNAKE_CASE}}` for variables. `{{?SECTION}}...{{/SECTION}}` for conditional blocks (whole sections only). See `/_core/placeholder-syntax.md`.
 
