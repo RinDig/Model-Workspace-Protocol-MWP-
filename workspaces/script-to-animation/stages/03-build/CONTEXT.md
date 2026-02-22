@@ -12,6 +12,7 @@ Take an animation spec and produce Remotion component code.
 | Skill | `../../skills/frontend-design/SKILL.md` | Full file | Design thinking, aesthetics |
 | Stage 02 reference | `../02-spec/references/component-registry.md` | Full file | Component implementation reference |
 | Stage 02 reference | `../02-spec/references/design-system.md` | "Colors" and "Typography" sections | Exact values for code |
+| Reference | `references/remotion-setup.md` | Full file | Project setup, rendering, troubleshooting |
 
 ## Process
 

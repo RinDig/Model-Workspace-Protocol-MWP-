@@ -158,15 +158,4 @@ Read individual rule files as needed for specific topics (fonts, audio, charts, 
 - Watch at 1x speed to verify pacing matches intended duration
 - Check on a mobile viewport (vertical if the platform is TikTok/Reels)
 - Render final video: `npx remotion render MyVideo output.mp4`
-
----
-
-## Remotion Project Setup
-
-Create a Remotion project (one-time): `npx create-video@latest` (select Blank template, enable TailwindCSS and Skills).
-
-To use Stage 03 output in a Remotion project:
-1. Copy beat components from `output/[slug]/beats/` into your `src/` folder
-2. Copy the index composition from `output/[slug]/index.tsx` into `src/`
-3. Register the composition in `Root.tsx`
-4. Run `npm run dev` to preview
+- See `remotion-setup.md` for project setup and troubleshooting
