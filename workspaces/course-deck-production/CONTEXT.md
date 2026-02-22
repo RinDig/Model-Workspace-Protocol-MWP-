@@ -18,6 +18,6 @@ A production system for building polished PowerPoint decks from unstructured sou
 |----------|----------|----------|
 | Producer identity | `shared/producer-identity.md` | Name/org, typical sources, default start stage |
 | Course meta template | `shared/course-meta.md` | Template for per-course metadata (filled each run) |
-| Design system | `design-system/CONTEXT.md` | Color palette, typography, layout rules for all decks |
-| Pptx skill reference | `references/CONTEXT.md` | Bundled html2pptx workflow docs from claude-office-skills |
-| Tool prerequisites | `prerequisites/CONTEXT.md` | Node.js, npm packages, LibreOffice setup |
+| Design system | `design-system/CONTEXT.md` | Color palette and typography for all decks |
+| Pptx skill | `skills/pptx/SKILL.md` | Full pptx creation workflow, html2pptx guide, scripts, OOXML editing |
+| Frontend design skill | `skills/frontend-design/SKILL.md` | Design philosophy, aesthetics, avoiding generic AI look |

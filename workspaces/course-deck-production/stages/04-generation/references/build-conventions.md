@@ -28,7 +28,7 @@ output/
 
 ```javascript
 const pptxgen = require('pptxgenjs');
-const html2pptx = require('[path-to-html2pptx]');
+const html2pptx = require('../../skills/pptx/scripts/html2pptx.js');
 const sharp = require('sharp');
 
 async function build() {

@@ -7,14 +7,15 @@ Visually validate generated decks, fix issues, and package for delivery.
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
 | Previous stage | `../04-generation/output/[session-slug]/` | .pptx files and JS source | Decks to validate and fix |
-| Design system | `../../design-system/CONTEXT.md` | Routes to palette, layout rules | Check design compliance |
-| Reference | `../../references/pptx-skill.md` | "Creating Thumbnail Grids" and "Converting Slides to Images" sections | Thumbnail generation commands |
+| Design system | `../../design-system/CONTEXT.md` | Routes to palette, typography | Check design compliance |
+| Skill | `../../skills/pptx/SKILL.md` | "Creating Thumbnail Grids" and "Converting Slides to Images" sections | Thumbnail generation commands |
+| Skill | `../../skills/frontend-design/SKILL.md` | Full file | Validate design quality |
 | Reference | `references/qa-checklist.md` | Full file | What to inspect for |
 
 ## Process
 
 1. For each session .pptx:
-   a. Generate thumbnail grid: `python scripts/thumbnail.py [session].pptx [session]-thumbnails`
+   a. Generate thumbnail grid: `python ../../skills/pptx/scripts/thumbnail.py [session].pptx [session]-thumbnails`
    b. Or convert to PDF + images: `soffice --headless --convert-to pdf [session].pptx` then `pdftoppm -jpeg -r 150 [session].pdf slide`
 2. Read and inspect every thumbnail for issues (see qa-checklist.md)
 3. If issues found:

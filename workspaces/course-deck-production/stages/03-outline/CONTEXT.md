@@ -10,7 +10,9 @@ Create a detailed slide-by-slide outline for each session in the curriculum.
 | Previous stage | `../02-curriculum/output/[course-slug]-meta.md` | Full file | Course name, audience, session count |
 | Shared | `../../shared/producer-identity.md` | Full file | Producer name |
 | Template | `../../shared/course-meta.md` | Full file | Template for collecting course details (if entering here) |
-| Design system | `../../design-system/CONTEXT.md` | Routes to palette, typography, layout rules | Visual direction |
+| Design system | `../../design-system/CONTEXT.md` | Routes to palette, typography | Visual direction |
+| Skill | `../../skills/pptx/SKILL.md` | Design principles, layout constraints | Slide layout rules |
+| Skill | `../../skills/frontend-design/SKILL.md` | Full file | Design thinking, aesthetics |
 | Reference | `references/slide-patterns.md` | Full file | Common slide types and when to use each |
 
 ## Process
@@ -24,7 +26,7 @@ Create a detailed slide-by-slide outline for each session in the curriculum.
    c. Write the content for each slide (title, bullets, speaker notes)
    d. Add visual direction (which colors, layout variant, chart/image needed)
    e. Flag any slide that needs a chart, table, or image (becomes a `class="placeholder"` in Stage 04)
-5. Verify no single-column chart-below-text layouts (layout-rules.md constraint)
+5. Verify no single-column chart-below-text layouts (pptx SKILL.md constraint)
 6. Ask the user to review outlines before generation
 7. Save one outline file per session
 

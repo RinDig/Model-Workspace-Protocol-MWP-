@@ -10,18 +10,13 @@ course-deck-production/
 ├── CONTEXT.md             (start here for task routing)
 ├── setup/
 │   └── questionnaire.md   (one-time onboarding -- identity and design)
-├── prerequisites/
-│   ├── CONTEXT.md         (tool requirements)
-│   └── node-pptx-setup.md (Node.js + html2pptx setup guide)
-├── design-system/         (colors, typography, layout rules)
+├── skills/                (bundled Claude skills for generation and design)
+│   ├── pptx/              (full pptx skill: SKILL.md, html2pptx.md, ooxml.md, scripts/)
+│   └── frontend-design/   (design philosophy and aesthetics: SKILL.md)
+├── design-system/         (colors and typography for your brand)
 │   ├── CONTEXT.md
 │   ├── palette.md
-│   ├── typography.md
-│   └── layout-rules.md
-├── references/            (pptx skill docs from claude-office-skills)
-│   ├── CONTEXT.md
-│   ├── pptx-skill.md
-│   └── html2pptx-guide.md
+│   └── typography.md
 ├── shared/
 │   ├── producer-identity.md  (who you are -- set during setup)
 │   └── course-meta.md        (template for per-course metadata)

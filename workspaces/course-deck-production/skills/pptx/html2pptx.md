@@ -28,6 +28,7 @@ Every HTML slide must include proper body dimensions:
 - `<i>`, `<em>` - Italic text (inline formatting)
 - `<u>` - Underlined text (inline formatting)
 - `<span>` - Inline formatting with CSS styles (bold, italic, underline, color)
+- `<br>` - Line breaks
 - `<div>` with bg/border - Becomes shape
 - `<img>` - Images
 - `class="placeholder"` - Reserved space for charts (returns `{ id, x, y, w, h }`)
@@ -39,8 +40,6 @@ Every HTML slide must include proper body dimensions:
 - ❌ Wrong: `<div>Text here</div>` - **Text will NOT appear in PowerPoint**
 - ❌ Wrong: `<span>Text</span>` - **Text will NOT appear in PowerPoint**
 - Text in `<div>` or `<span>` without a text tag will be silently ignored
-
-**NEVER use `<br>` tags** - Use separate text elements for each line
 
 **NEVER use manual bullet symbols (•, -, *, etc.)** - Use `<ul>` or `<ol>` lists instead
 
