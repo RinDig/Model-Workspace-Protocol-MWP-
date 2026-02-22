@@ -23,9 +23,29 @@ curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
+## Clone the claude-office-skills Repository
+
+The html2pptx library (which converts HTML slides to PowerPoint) is not available as an npm package. It lives in the claude-office-skills repo.
+
+```bash
+git clone https://github.com/tfriedel/claude-office-skills.git
+```
+
+This gives you:
+- `claude-office-skills/html2pptx-local.cjs` -- the html2pptx conversion library
+- `claude-office-skills/public/pptx/scripts/` -- thumbnail, inventory, replace, and rearrange utilities
+
 ## Install npm Packages
 
-From the workspace root (or any working directory where you will run generation):
+From the claude-office-skills directory (it has the package.json with correct dependencies):
+
+```bash
+cd claude-office-skills
+npm install
+npx playwright install chromium
+```
+
+Or from any other working directory:
 
 ```bash
 npm install pptxgenjs playwright sharp react react-dom react-icons
