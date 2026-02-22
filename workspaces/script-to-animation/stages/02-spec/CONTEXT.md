@@ -11,6 +11,7 @@ Take a finished script and produce a beat-by-beat animation specification defini
 | Reference | `references/component-registry.md` | Full file | Available animation components and their props |
 | Reference | `references/design-system.md` | "Colors", "Typography", "Motion" sections | Visual constraints and exact values |
 | Reference | `references/animation-guide.md` | Full file | Motion principles, visual rhythm, common mistakes |
+| Skill | `../../skills/frontend-design/SKILL.md` | Full file | Design thinking, aesthetics, visual direction |
 
 ## Process
 

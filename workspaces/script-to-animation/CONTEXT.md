@@ -24,3 +24,5 @@ The build stage (03-build) converts specs into Remotion component code. If your 
 |----------|----------|----------|
 | Brand context | `brand-vault/CONTEXT.md` | Routes to voice rules and brand identity |
 | Platform specs | `shared/platform-specs.md` | Resolution, duration, format per platform |
+| Remotion skill | `skills/remotion-best-practices/SKILL.md` | Full Remotion API reference, 35 rule files with code examples |
+| Frontend design skill | `skills/frontend-design/SKILL.md` | Design philosophy, aesthetics, avoiding generic AI look |

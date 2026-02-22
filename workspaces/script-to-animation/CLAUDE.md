@@ -10,8 +10,9 @@ script-to-animation/
 ├── CONTEXT.md             (start here for task routing)
 ├── setup/
 │   └── questionnaire.md   (onboarding -- run with "setup")
-├── prerequisites/
-│   └── CONTEXT.md         (external tools: Node.js, Remotion)
+├── skills/                (bundled Claude skills for build and design)
+│   ├── remotion-best-practices/  (full Remotion skill: SKILL.md + 35 rule files)
+│   └── frontend-design/   (design philosophy and aesthetics: SKILL.md)
 ├── brand-vault/
 │   ├── CONTEXT.md         (routes to voice and identity files)
 │   ├── voice-rules.md     (writing voice and tone)
@@ -60,7 +61,6 @@ Pipeline Status: script-to-animation
 | Create an animation spec | `stages/02-spec/CONTEXT.md` |
 | Build Remotion code | `stages/03-build/CONTEXT.md` |
 | Configure this workspace | `setup/questionnaire.md` |
-| Check tool requirements | `prerequisites/CONTEXT.md` |
 
 ## Stage Handoffs
 

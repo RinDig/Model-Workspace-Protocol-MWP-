@@ -138,48 +138,16 @@ Map spec components to Remotion implementations:
 
 ---
 
-## Key Remotion APIs
+## Remotion API Reference
 
-The essential functions for building animations:
+For all Remotion APIs (animations, timing, sequencing, transitions, fonts, audio, charts, etc.), see the bundled skill:
+- `../../skills/remotion-best-practices/SKILL.md` -- index of all rule files
+- `../../skills/remotion-best-practices/rules/animations.md` -- core animation patterns
+- `../../skills/remotion-best-practices/rules/timing.md` -- interpolation and spring physics
+- `../../skills/remotion-best-practices/rules/sequencing.md` -- Sequence nesting and staggering
+- `../../skills/remotion-best-practices/rules/transitions.md` -- scene transitions
 
-**`useCurrentFrame()`** -- Returns the current frame number. Inside a `<Sequence>`, this resets to 0 at the Sequence start.
-
-**`useVideoConfig()`** -- Returns `{ width, height, fps, durationInFrames }`. Use `fps` for time-based calculations.
-
-**`interpolate(frame, inputRange, outputRange, options)`** -- Maps frame values to animation values. Always pass `{ extrapolateRight: "clamp" }` to prevent values going past their target.
-
-```tsx
-const opacity = interpolate(frame, [0, 20], [0, 1], {
-  extrapolateRight: "clamp",
-});
-```
-
-**`spring({ frame, fps, config })`** -- Physics-based animation (0 to 1). Config options: `mass`, `damping`, `stiffness`. Use for entrances and anything that should feel physical.
-
-```tsx
-const scale = spring({
-  frame,
-  fps,
-  config: { mass: 1, damping: 10, stiffness: 100 },
-});
-```
-
-**`<Sequence from={N} durationInFrames={M}>`** -- Mounts children at frame N for M frames. Children see frame 0 at their own start. Use for organizing beats and staggering elements.
-
-**`Easing`** -- Custom timing curves. `Easing.inOut(Easing.quad)` for smooth acceleration. `Easing.bezier()` for custom curves.
-
----
-
-## Remotion Skills Integration
-
-If the Remotion project was set up with Skills installed (`npx create-video@latest` with Skills enabled), Claude Code has access to Remotion-specific animation knowledge. This means it can:
-
-- Generate spring-based animations with appropriate damping/stiffness values
-- Structure compositions with proper Sequence nesting
-- Handle async data loading with `delayRender()`/`continueRender()`
-- Use TailwindCSS for styling (if installed during setup)
-
-When building from a spec, let Claude Code handle the implementation details. Focus your edits on the visual result, not the code structure.
+Read individual rule files as needed for specific topics (fonts, audio, charts, text animations, etc.).
 
 ---
 
@@ -189,4 +157,16 @@ When building from a spec, let Claude Code handle the implementation details. Fo
 - Preview the full composition to check flow and transitions
 - Watch at 1x speed to verify pacing matches intended duration
 - Check on a mobile viewport (vertical if the platform is TikTok/Reels)
-- See `remotion-setup.md` for rendering the final video
+- Render final video: `npx remotion render MyVideo output.mp4`
+
+---
+
+## Remotion Project Setup
+
+Create a Remotion project (one-time): `npx create-video@latest` (select Blank template, enable TailwindCSS and Skills).
+
+To use Stage 03 output in a Remotion project:
+1. Copy beat components from `output/[slug]/beats/` into your `src/` folder
+2. Copy the index composition from `output/[slug]/index.tsx` into `src/`
+3. Register the composition in `Root.tsx`
+4. Run `npm run dev` to preview

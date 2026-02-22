@@ -7,10 +7,11 @@ Take an animation spec and produce Remotion component code.
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
 | Previous stage | `../02-spec/output/` | Most recent spec file (full) | The spec to implement |
-| Reference | `references/build-conventions.md` | Full file | Remotion patterns, file structure, naming |
+| Reference | `references/build-conventions.md` | Full file | File structure, naming, beat/composition patterns |
+| Skill | `../../skills/remotion-best-practices/SKILL.md` | Index, then load rule files as needed | Remotion APIs, animations, timing, sequencing, transitions |
+| Skill | `../../skills/frontend-design/SKILL.md` | Full file | Design thinking, aesthetics |
 | Stage 02 reference | `../02-spec/references/component-registry.md` | Full file | Component implementation reference |
 | Stage 02 reference | `../02-spec/references/design-system.md` | "Colors" and "Typography" sections | Exact values for code |
-| Reference | `references/remotion-setup.md` | Full file | Project setup, structure, and rendering |
 
 ## Process
 
