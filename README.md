@@ -1,20 +1,20 @@
 # Model Workspace Protocol (MWP)
 
-Structured markdown files that turn AI agents into controlled, multi-stage production systems.
+A folder structure that routes AI agents through multi-stage workflows. Each stage has bounded context, a defined contract, and an output a human can edit before the next stage reads it.
 
-No code. No app. The folder structure is the product. Markdown files route agents to the right context at each stage, define handoff points where humans can intervene, and create repeatable workflows you run over and over -- set up once, produce forever.
+No code. No app. Markdown files are the instructions. Output folders are the state. The AI agent is the runtime. Your editor is the UI.
 
 **Created by [Jake Van Clief](https://github.com/arro1)**
 
-## The Problem
+## What Problem This Solves
 
-Most AI tooling gives you one shot. You prompt, you get output, you like it or you redo the whole thing. If step 3 of 5 goes wrong, you re-run from scratch.
+The context window is working memory. When you load 15,000 tokens into an agent that needs 4,000, the extra 11,000 aren't neutral. They're noise. The agent blends rules from files it shouldn't be reading, confuses voice guidelines with animation timing, pulls from brand strategy when it should be writing code.
 
-MWP breaks workflows into discrete stages. Each stage has its own context, its own output, and its own edit surface. If stage 3 produces something off, you fix stage 3. You do not re-run the pipeline.
+Most people experiencing "AI isn't good enough" are experiencing a context architecture problem. They're recreating the monolith: every file loaded into every conversation, just like a monolithic app where every module sees every other module.
 
-The workspace is a production system, not a single-use template. You configure it once (brand, design, preferences), then run it repeatedly -- each run produces a new deliverable using the same pipeline.
+MWP fixes this by breaking workflows into discrete stages where each stage has bounded context. An agent at stage 3 loads what stage 3 needs. Nothing else.
 
-## How It Works
+## How the Folder Structure Works
 
 Agents read down four layers and stop when they have what they need.
 
@@ -25,7 +25,16 @@ Layer 2: Stage CONTEXT.md  "What do I do?"     Read per-task (~200-500 tokens)
 Layer 3: Content files     "What do I need?"   Loaded selectively (varies)
 ```
 
-A rendering agent might only need Layers 0-1. A script-writing agent reads down to Layer 3. No agent reads everything. This keeps token cost low and context focused.
+A rendering agent might only need Layers 0-1. A script-writing agent reads down to Layer 3. No agent reads everything.
+
+Each stage is a folder containing:
+- A **CONTEXT.md** file (the contract): declares what files to read, what the agent does with them, and what it produces
+- An **output/** directory: where the finished artifact lands
+- A **references/** directory: supporting material the agent needs for this stage only
+
+The output of stage N sits in a known location. The CONTEXT.md of stage N+1 points to that location. That's the entire handoff mechanism. No orchestration code. No state management. Just files in predictable places and routing docs that point to them.
+
+If stage 3 produces bad output, you fix stage 3. You edit the output file in a text editor, and stage 4 picks up your edited version because it just reads from stage 3's output folder.
 
 ## Getting Started
 
@@ -33,7 +42,7 @@ A rendering agent might only need Layers 0-1. A script-writing agent reads down 
 2. `cd workspaces/script-to-animation` (or any workspace)
 3. Open [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
 4. Type `setup`
-5. Answer a handful of questions about your brand, design, and workflow -- all at once, one pass
+5. Answer the onboarding questions -- all at once, one pass
 6. Your answers populate across the workspace files
 7. Start producing -- give the agent a topic and walk through the stages
 
@@ -49,14 +58,39 @@ Each stage produces an output file. You can edit that file before moving on. The
 
 ## Build Your Own Workspace
 
-Use the workspace-builder to create a workspace for any domain:
+The workspace-builder builds new MWP workspaces. It follows MWP conventions to produce workspaces that follow MWP conventions. Same logic as a compiler that can compile itself.
 
 1. `cd workspaces/workspace-builder`
 2. Type `setup` to describe your domain
 3. Walk through the five stages: discovery, mapping, scaffolding, questionnaire design, and validation
-4. The output is a complete, ready-to-use MWP workspace
+4. The output is a complete, ready-to-use workspace
 
-The workspace-builder itself follows MWP conventions, so the workspaces it produces are automatically consistent.
+The pattern transfers to any repeatable multi-step workflow where AI agents need structured context: report generation, audit procedures, curriculum development, code documentation, or any process where someone currently does the same sequence of steps with different input material each time.
+
+## The Patterns
+
+Every workspace follows the conventions defined in [`_core/CONVENTIONS.md`](_core/CONVENTIONS.md). These are old ideas (separation of concerns, one-way dependencies, canonical sources) applied to a new problem (AI context management).
+
+### Architecture
+
+- **Stage contracts** -- Every stage CONTEXT.md has Inputs, Process, and Outputs. Simple enough for anyone to read. Structured enough for an agent to follow.
+- **Stage handoffs** -- Output folders connect stages. Edit any output and the next stage picks up your changes.
+- **One-way references** -- If A references B, B does not reference A. Prevents circular dependencies and scales linearly.
+- **Selective section routing** -- CONTEXT.md tables specify which sections of which files to load. 80 lines instead of 174 compounds across every conversation.
+- **Canonical sources** -- Every piece of information has one home. Other files point there. The moment the same rule exists in two files, they drift.
+
+### Quality
+
+- **Specs are contracts** -- Specification stages define WHAT and WHEN. They do not prescribe HOW. The build stage has creative freedom within the quality floor defined by the design system.
+- **Checkpoints** -- Creative stages pause for human steering between steps. The agent completes a unit of work, presents options, and the human redirects before the next unit begins.
+- **Stage audits** -- Quality checklists the agent runs after completing a stage but before writing output. Each check has an unambiguous pass condition.
+- **Value validation** -- Content stages define what types of value their output delivers. The value is locked before drafting begins.
+- **Docs over outputs** -- Reference docs are the authoritative source for how to build. Agents do not read previous outputs to learn patterns.
+
+### Onboarding
+
+- **Questionnaire design** -- Flat, all-at-once, system-level only. Configure the factory, not the product. Voice questions extract concrete examples, not descriptions.
+- **Shared constants** -- Code-producing workspaces define shared constant files that all outputs import from. Change a value once, it updates everywhere.
 
 ## Contributing
 
@@ -78,8 +112,8 @@ The workspace-builder itself follows MWP conventions, so the workspaces it produ
 
 - **Repeatable workflow.** Something you or others will run many times, not a one-off task.
 - **Clear stage boundaries.** Each stage produces a distinct artifact that a human might want to review or edit before proceeding.
-- **System-level setup.** The questionnaire configures the production system (identity, design, preferences), not a specific run. Per-run details are collected at the start of each pipeline run.
-- **Follows MWP conventions.** The workspace-builder enforces this automatically. See [`_core/CONVENTIONS.md`](_core/CONVENTIONS.md) for the full spec.
+- **System-level setup.** The questionnaire configures the production system (identity, design, preferences), not a specific run.
+- **Follows MWP conventions.** The workspace-builder enforces this automatically. See [`_core/CONVENTIONS.md`](_core/CONVENTIONS.md) for the full spec (15 patterns).
 
 ### PR checklist
 
@@ -88,9 +122,9 @@ The workspace-builder itself follows MWP conventions, so the workspaces it produ
 - [ ] At least one end-to-end run completed successfully
 - [ ] No stage outputs committed (output folders should only contain `.gitkeep`)
 - [ ] All CONTEXT.md files are under 80 lines
-- [ ] All reference files are under 200 lines (or documented exception for bundled external docs)
+- [ ] All reference files are under 200 lines
+- [ ] Creative stages have at least one checkpoint and an audit section
 - [ ] No circular dependencies between stages
-- [ ] Root CLAUDE.md routing table updated to include your workspace
 
 ### Other contributions
 
@@ -98,18 +132,11 @@ The workspace-builder itself follows MWP conventions, so the workspaces it produ
 - **Improvements** to the workspace-builder itself
 - **New patterns** for `_core/CONVENTIONS.md` (propose in an issue first)
 
-## Core Patterns
+## Origin
 
-Every workspace follows the conventions defined in [`_core/CONVENTIONS.md`](_core/CONVENTIONS.md):
+MWP grew out of a [content production routing architecture](https://github.com/RinDig/Content-Agent-Routing-Promptbase) that applies separation of concerns to AI context windows instead of code modules. That system runs a full content operation: scripting, animation specs, Remotion builds, brand management. MWP is the general-purpose version -- the structural patterns extracted so anyone can scaffold their own workflows.
 
-- **Stage contracts** -- Every stage has Inputs, Process, and Outputs sections
-- **Stage handoffs** -- Output folders connect stages. Edit any output and the next stage picks up your changes
-- **One-way references** -- Folders point outward to what they need. No circular dependencies
-- **Selective section routing** -- Agents load specific sections of files, not entire files
-- **Canonical sources** -- Every piece of information has one home. Other files point there
-- **CONTEXT.md = routing only** -- CONTEXT files tell agents where to go, not what to know
-- **Tool prerequisites** -- External tools get setup guides and are listed in a prerequisites table
-- **Questionnaire design** -- Flat, all-at-once, system-level only. Configure the factory, not the product.
+MCP standardizes how models talk to tools. MWP standardizes how models navigate work.
 
 ## License
 
