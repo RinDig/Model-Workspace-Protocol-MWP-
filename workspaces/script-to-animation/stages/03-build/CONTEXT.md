@@ -2,6 +2,9 @@
 
 Take an animation spec and produce Remotion component code.
 
+<!-- After loading the reference docs and skill rules below, you have the complete
+     reference. Do not read other output/ files to learn patterns. -->
+
 ## Inputs
 
 | Source | File/Location | Section/Scope | Why |
@@ -18,12 +21,23 @@ Take an animation spec and produce Remotion component code.
 
 1. Read the spec from `../02-spec/output/`
 2. Create the composition folder structure per build conventions
-3. Implement each beat as a separate component
+3. Interpret the spec's visual concepts and implement each beat as a separate component. The spec defines WHAT and WHEN; choose HOW (animation approach, layout, component choices, transitions)
 4. Use exact values from the design system for all colors, fonts, and sizes
-5. Map spec components to Remotion implementations per build conventions
-6. Stitch beats together in the index composition file
-7. Follow file naming conventions
+5. Stitch beats together in the index composition file with transitions (no hard cuts unless the spec specifically calls for one)
+6. Follow file naming conventions
+7. Run the audit checks below. If any fail, revise before saving
 8. Save to output/
+
+## Audit
+
+| Check | Pass Condition |
+|-------|---------------|
+| Spec coverage | Every beat from the spec has a corresponding implementation |
+| Design system compliance | Colors, fonts, and sizes reference shared constants, not hardcoded values |
+| Platform specs | Output dimensions and duration match platform requirements |
+| Transitions | No hard cuts between beats (unless spec specifically calls for it) |
+| Mobile readability | All text is readable at phone resolution |
+| Safe zones | No critical content in the outer 5% of frame |
 
 ## Outputs
 

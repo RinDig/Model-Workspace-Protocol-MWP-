@@ -25,15 +25,21 @@ Run each check below. Record pass/fail and any issues found.
 
 5. **Stage handoff chain.** Verify the chain is unbroken: Stage N's output location must match what Stage N+1's Inputs table references. List the chain and flag any gaps.
 
-6. **CONTEXT.md purity.** Verify no CONTEXT.md file contains actual reference content (definitions, extended rules, examples, guidelines). They should contain only: title, description, Inputs table, Process steps, Outputs table.
+6. **CONTEXT.md purity.** Verify no CONTEXT.md file contains actual reference content (definitions, extended rules, examples, guidelines). They should contain only: title, description, Inputs table, Process steps, Checkpoints table (optional), Audit table (optional), Outputs table.
 
-7. **Line count check.** Flag any CONTEXT.md over 80 lines. Flag any reference file over 200 lines.
+7. **Checkpoints in creative stages.** Verify that stages doing creative work (writing, design, ideation) have at least one checkpoint. Verify checkpoint tables reference valid process step numbers. Linear stages (extract, render, validate) may skip checkpoints.
 
-8. **Naming conventions.** All folder and file names are lowercase-with-hyphens. Stage folders use zero-padded numbers (01-, 02-). Empty output/ folders have .gitkeep files.
+8. **Audits in creative/build stages.** Verify that stages doing creative or build work have an Audit section with specific, unambiguous pass conditions. Verify the audit runs after the process steps and before output is written.
 
-9. **Tool prerequisites.** If the workspace has a prerequisites/ folder or tool setup guides: verify prerequisites/CONTEXT.md lists every tool, verify each listed tool has a setup guide, verify setup guides include install steps and verification commands, and verify the questionnaire asks whether optional tools are needed (so conditional stages can be removed).
+9. **Contract purity in spec stages.** If the workspace has a specification stage, verify its output format defines WHAT and WHEN, not HOW. Check for component names, frame numbers, prop definitions, or spring configs in spec reference files. These are implementation details that belong to the build stage.
 
-10. **Quality scan.** Check for em dashes (replace with --), jargon without explanation, and markdown formatting issues.
+10. **Line count check.** Flag any CONTEXT.md over 80 lines. Flag any reference file over 200 lines.
+
+11. **Naming conventions.** All folder and file names are lowercase-with-hyphens. Stage folders use zero-padded numbers (01-, 02-). Empty output/ folders have .gitkeep files.
+
+12. **Tool prerequisites.** If the workspace has a prerequisites/ folder or tool setup guides: verify prerequisites/CONTEXT.md lists every tool, verify each listed tool has a setup guide, verify setup guides include install steps and verification commands, and verify the questionnaire asks whether optional tools are needed (so conditional stages can be removed).
+
+13. **Quality scan.** Check for em dashes (replace with --), jargon without explanation, and markdown formatting issues.
 
 If issues are found, fix them in the scaffolded workspace files, then re-run the failed checks to confirm the fix.
 

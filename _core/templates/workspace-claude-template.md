@@ -33,6 +33,16 @@
 | [Task type 2] | `stages/02-[name]/CONTEXT.md` |
 | [Task type 3] | `stages/03-[name]/CONTEXT.md` |
 
+## What to Load
+
+<!-- Map each task to its minimal file set. Loading more files dilutes quality.
+     The context window is working memory, not storage. -->
+
+| Task | Load These | Do NOT Load |
+|------|-----------|-------------|
+| [Task 1] | [minimal file list] | [what to skip and why] |
+| [Task 2] | [minimal file list] | [what to skip and why] |
+
 ## Stage Handoffs
 
 Each stage writes its output to its own `output/` folder. The next stage reads from there. If you edit an output file, the next stage picks up your edits.

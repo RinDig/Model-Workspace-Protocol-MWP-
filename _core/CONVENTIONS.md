@@ -25,6 +25,8 @@ Layer 3: Content files    -> "What do I need?"    (loaded selectively, varies)
 
 A rendering agent might only need Layers 0-1. A script-writing agent reads down to Layer 3. No agent reads everything.
 
+Every token of irrelevant context is a token of diluted attention. Workspace CLAUDE.md files should explicitly map each task to its minimal required files. Loading more context does not make output better. It makes it worse.
+
 ---
 
 ## Pattern 1: Stage Contracts
@@ -212,6 +214,81 @@ workspace/
 Skills replace custom reference docs when an official skill covers the same ground. Keep workspace-specific files (design systems, brand config, build conventions) alongside skills, not inside them.
 
 **When NOT to bundle:** Do not bundle skills that are purely about Claude Code itself (e.g., skill-creator, mcp-builder). Only bundle skills that provide domain knowledge the workspace's agents need at runtime.
+
+---
+
+## Pattern 10: Specs Are Contracts
+
+Specification stages define WHAT the output should achieve and WHEN things happen. They do not prescribe HOW to implement. The build stage has creative freedom within the quality floor defined by the design system.
+
+A spec contains:
+- **Beat map** with approximate durations, narration, and mood
+- **Visual philosophy** describing what a muted viewer should understand
+- **Key moments** that MUST land, and why each matters
+- **Audio sync points** mapping narration words to visual events
+- **Color flow** with per-scene dominant color and mood
+
+A spec does NOT contain: frame numbers, component names, pixel positions, spring configs, or prop definitions. These are implementation decisions that belong to the build stage.
+
+---
+
+## Pattern 11: Checkpoints
+
+Creative stages should include at least one checkpoint where the agent pauses and the human steers. The agent completes a full unit of work, presents options or a draft, and the human redirects before the next unit begins. Checkpoints go between process steps, not within them.
+
+Not every stage needs checkpoints. Linear stages (extract, render, validate) often run straight through. Creative stages (writing, design, ideation) benefit from at least one.
+
+The Checkpoints section in a stage CONTEXT.md is a table:
+
+```
+| After Step | Agent Presents | Human Decides |
+|------------|---------------|---------------|
+| [step #] | [what to show] | [what to choose] |
+```
+
+---
+
+## Pattern 12: Stage Audits
+
+Creative and build stages should include an Audit section: a checklist the agent runs after completing the process but before writing to output/. Audits catch quality issues before they propagate downstream. Each check should be specific enough that pass/fail is unambiguous.
+
+Not every stage needs an audit. Data extraction or file conversion stages may not benefit. Creative and build stages almost always do.
+
+The Audit section in a stage CONTEXT.md is a table:
+
+```
+| Check | Pass Condition |
+|-------|---------------|
+| [Check name] | [What "passing" looks like] |
+```
+
+If any check fails, the agent revises before saving to output/.
+
+---
+
+## Pattern 13: Value Validation
+
+Content-producing stages should define what types of value their output can deliver. Before the main creative work begins (ideally at a checkpoint), the agent and human should agree on which value types this specific piece will hit. This prevents "interesting but doesn't DO anything" output.
+
+Value types are workspace-specific. A content workspace might use NOVEL, USABLE, QUESTION-GENERATING, INTERESTING. A course workspace might use TEACHES, PRACTICES, CHALLENGES. The framework is defined once in a reference file and used at every checkpoint.
+
+---
+
+## Pattern 14: Docs Over Outputs
+
+Reference docs (design system, build conventions, skill rules) are the authoritative source for how to build. Previous stage outputs in `output/` folders are artifacts, not templates. Agents should not read other outputs to learn patterns.
+
+This prevents copying from older, lower-quality work and ensures docs remain the single source of truth for quality standards. Early outputs are the worst outputs. If future agents learn from them, quality never improves.
+
+---
+
+## Pattern 15: Shared Constants
+
+Workspaces that produce code should define a constants pattern. Configurable values (colors, fonts, timing, layout) live in shared files that all build outputs import from. The questionnaire populates these files once during onboarding. Change a value once, it updates everywhere.
+
+This is Pattern 5 (Canonical Sources) applied to code values. Without shared constants, the same hex code or font name is hardcoded in every output file. Changing the brand color means a find-and-replace across every file ever built.
+
+For non-code workspaces (content writing, course design), this pattern does not apply. Shared values live in reference docs instead.
 
 ---
 

@@ -24,12 +24,14 @@ Build the onboarding questionnaire that hydrates the new workspace's placeholder
    - The files where those placeholders appear
    - Input type (free text, multiple choice, yes/no)
    - A sensible default or example so the user can skip if they do not care
-5. If a field can be derived from another answer, list it as a derived field under the source question. The agent fills derived fields without asking.
-6. Write ALL questions as a flat numbered list -- no category groupings. The user should be able to answer everything in a single message.
-7. Add conditional logic for optional stages: yes/no questions that remove folders or `{{?SECTION}}` blocks.
-8. Verify every system-level placeholder has a corresponding question
-9. Verify per-run placeholders are handled by stage CONTEXT.md files, not the questionnaire
-10. Write the questionnaire.md
+5. For voice/style questions, ask for concrete examples rather than descriptions. "Give me 2-3 sentences that sound like your brand" extracts pattern-matchable rules. "Describe your voice" extracts an abstraction the agent must interpret. See Rule 7 in the questionnaire template.
+6. If a field can be derived from another answer, list it as a derived field under the source question. The agent fills derived fields without asking.
+7. Write ALL questions as a flat numbered list -- no category groupings. The user should be able to answer everything in a single message.
+8. Add conditional logic for optional stages: yes/no questions that remove folders or `{{?SECTION}}` blocks.
+9. If the workspace has voice/style rules with derived fields, add a two-pass process: after the agent populates rules from answers, it presents them to the user for review before finalizing. This catches misinterpretations.
+10. Verify every system-level placeholder has a corresponding question
+11. Verify per-run placeholders are handled by stage CONTEXT.md files, not the questionnaire
+12. Write the questionnaire.md
 
 ## Outputs
 

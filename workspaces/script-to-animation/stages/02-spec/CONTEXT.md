@@ -1,34 +1,45 @@
 # Stage 02: Animation Specification
 
-Take a finished script and produce a beat-by-beat animation specification defining the visual treatment for every line.
+Take a finished script and produce a spec that defines visual concepts and timing for each beat. The spec is a contract: it defines WHAT and WHEN, not HOW.
 
 ## Inputs
 
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
 | Previous stage | `../01-script/output/` | Most recent script file (full) | The script to spec |
-| Reference | `references/spec-format.md` | Full file | BEATS constants, frame-range syntax, beat structure |
-| Reference | `references/component-registry.md` | Full file | Available animation components and their props |
-| Reference | `references/design-system.md` | "Colors", "Typography", "Motion" sections | Visual constraints and exact values |
-| Reference | `references/animation-guide.md` | Full file | Motion principles, visual rhythm, common mistakes |
+| Reference | `references/spec-format.md` | Full file | Contract format, required sections, rules |
+| Reference | `references/design-system.md` | "Colors" and "Typography" sections | Visual values for color flow |
+| Reference | `references/animation-guide.md` | Full file | Motion principles, visual rhythm |
 | Skill | `../../skills/frontend-design/SKILL.md` | Full file | Design thinking, aesthetics, visual direction |
 
 ## Process
 
 1. Read the script from `../01-script/output/`
-2. Break the script into beats (one concept per beat)
-3. For each beat, define: frame range, narration, visual description, components, props, transition
-4. Follow the spec format from `spec-format.md`
-5. Reference only components that exist in the component registry
-6. Use exact values from the design system for colors, fonts, and timing
-7. Verify frame ranges are continuous (no gaps, no overlaps)
-8. Add the spec metadata header
-9. Save to output/
+2. Identify the core visual metaphor: what single visual idea makes this video work on mute?
+3. Break the script into beats (one concept per beat) with approximate durations
+4. Write the beat map table with narration, approximate timing, and mood
+5. Write the visual philosophy: what a muted viewer should understand, and what visual density this video calls for (3-5 paragraphs)
+6. Identify the 2-3 key moments that MUST land, and explain why each matters
+7. Map audio sync points: specific narration words to visual events
+8. Write the color flow: dominant color and mood per scene
+9. Run the audit checks below. If any fail, revise before saving
+10. Save to output/
+
+## Audit
+
+| Check | Pass Condition |
+|-------|---------------|
+| Mute test | Visual concepts create curiosity without audio |
+| One concept per beat | No beat explains two things |
+| Contract purity | Spec contains zero component names, frame numbers, or prop definitions |
+| Key moments | 2-3 non-negotiable animations identified with clear rationale |
+| Audio sync | At least 3 specific narration words mapped to visual events |
+| Color flow | Every scene has a dominant color and mood assigned |
 
 ## Outputs
 
 | Artifact | Location | Format |
 |----------|----------|--------|
-| Animation spec | `output/[topic-slug]-spec.md` | Beat-by-beat markdown with frame ranges, components, and props |
+| Animation spec | `output/[topic-slug]-spec.md` | Contract-format markdown (beat map, visual philosophy, key moments, sync points, color flow) |
 
-The spec file in `output/` is the human edit surface. Adjust timing, swap components, change visual treatments. Stage 03 reads whatever is in that file.
+The spec file in `output/` is the human edit surface. Adjust timing, change visual concepts, refine the color arc. Stage 03 reads whatever is in that file.

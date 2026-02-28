@@ -1,6 +1,34 @@
 # Build Conventions
 
-How to turn an animation spec into Remotion code. Follow these patterns for file structure, naming, and component implementation.
+How to turn an animation spec into Remotion code. The spec defines WHAT and WHEN. The design system defines the quality floor. You decide HOW.
+
+---
+
+## Creative Freedom
+
+The builder has full creative latitude for implementation:
+
+- **Animation approach** -- which Remotion APIs, spring configs, easing curves
+- **Layout** -- pixel positions, element sizing, composition within safe zones
+- **Component choices** -- reuse, customize, or build new
+- **Visual interpretation** -- how to realize the spec's visual concepts in actual animation
+- **Transitions** -- fade, slide, wipe, light leaks, or custom
+
+The spec's timing is approximate. Calculate exact frames from the beat map durations. The design system's production standard (depth stack, surface treatment, motion patterns) is the quality floor: creative freedom means choosing how to implement those requirements, not whether to implement them.
+
+---
+
+## Shared Constants
+
+Import values from the shared constants file. Do not hardcode colors, fonts, or timing values in beat components.
+
+```tsx
+import { COLORS, FONTS } from "../constants";
+```
+
+After onboarding, the constants file contains the brand's exact values. Every build output imports from this single source.
+
+If the workspace does not have a constants file yet, define values at the top of your index file and note that they should be extracted to shared constants.
 
 ---
 
@@ -12,8 +40,9 @@ output/
 │   ├── index.tsx              (main composition -- stitches beats together)
 │   ├── beats/
 │   │   ├── Beat01.tsx         (first beat component)
-│   │   ├── Beat02.tsx         (second beat component)
+│   │   ├── Beat02.tsx
 │   │   └── ...
+│   ├── constants.ts           (shared values: colors, fonts, timing)
 │   └── assets/                (images, fonts, audio if needed)
 ```
 
@@ -26,6 +55,7 @@ Each spec becomes its own folder. Beats are individual components composed into 
 - Composition folder: `[topic-slug]/` (lowercase-with-hyphens, matches the script slug)
 - Beat files: `Beat01.tsx`, `Beat02.tsx` (PascalCase with zero-padded number)
 - Main composition: `index.tsx`
+- Constants: `constants.ts`
 - Asset files: `[descriptive-name].[ext]` (lowercase-with-hyphens)
 
 ---
@@ -35,7 +65,8 @@ Each spec becomes its own folder. Beats are individual components composed into 
 Every beat component follows this structure:
 
 ```tsx
-import { useCurrentFrame, interpolate } from "remotion";
+import { useCurrentFrame, interpolate, spring } from "remotion";
+import { COLORS, FONTS } from "../constants";
 
 interface Beat01Props {
   startFrame: number;
@@ -47,7 +78,6 @@ export const Beat01: React.FC<Beat01Props> = ({ startFrame, endFrame }) => {
   const localFrame = frame - startFrame;
   const duration = endFrame - startFrame;
 
-  // Animation logic using localFrame and duration
   const opacity = interpolate(localFrame, [0, 20], [0, 1], {
     extrapolateRight: "clamp",
   });
@@ -65,89 +95,53 @@ Key patterns:
 - Calculate `localFrame` by subtracting `startFrame` from the global frame
 - Use `interpolate()` for all animated values
 - Always set `extrapolateRight: "clamp"` to prevent values going past their target
+- Import colors and fonts from shared constants
 
 ---
 
 ## Composition Pattern
 
-The index file stitches beats together:
+The index file stitches beats together. Calculate frame ranges from the spec's approximate durations:
 
 ```tsx
-import { Composition } from "remotion";
 import { Beat01 } from "./beats/Beat01";
 import { Beat02 } from "./beats/Beat02";
+
+// Calculated from spec beat map (~3s hook, ~8s build at 30fps)
+const BEATS = {
+  HOOK: { start: 0, end: 89 },
+  BUILD: { start: 90, end: 329 },
+};
 
 export const MainComposition: React.FC = () => {
   return (
     <>
-      <Beat01 startFrame={0} endFrame={90} />
-      <Beat02 startFrame={91} endFrame={240} />
+      <Beat01 startFrame={BEATS.HOOK.start} endFrame={BEATS.HOOK.end} />
+      <Beat02 startFrame={BEATS.BUILD.start} endFrame={BEATS.BUILD.end} />
     </>
   );
 };
 ```
-
-Frame ranges come directly from the spec. Do not recalculate them.
-
----
-
-## Using the Design System
-
-Import values from the design system as constants at the top of each file:
-
-```tsx
-const COLORS = {
-  primary: "{{PRIMARY_COLOR}}",
-  secondary: "{{SECONDARY_COLOR}}",
-  accent: "{{ACCENT_COLOR}}",
-  background: "{{BACKGROUND_COLOR}}",
-  text: "{{TEXT_COLOR}}",
-};
-
-const FONTS = {
-  heading: "{{HEADING_FONT}}",
-  body: "{{BODY_FONT}}",
-};
-```
-
-After onboarding, these placeholders become real values. Before onboarding, they serve as clear markers for where values go.
-
----
-
-## Component Mapping
-
-Map spec components to Remotion implementations:
-
-| Spec Component | Implementation | Notes |
-|----------------|---------------|-------|
-| TextReveal | Custom component with character-by-character interpolation | Use spring() for natural feel |
-| BackgroundGradient | CSS linear-gradient or radial-gradient | Static, no animation needed |
-| LayerDiagram | Stacked divs with staggered entrance animations | Core component for Layered Reveal |
-| SlideIn | translateX/translateY with interpolate() | Direction maps to axis |
-| FadeTransition | opacity interpolation | Simplest transition |
-| ScaleUp | transform: scale() with interpolate() | Use spring() for bounce |
 
 ---
 
 ## Timing Conventions
 
 - 30fps throughout. Do not change this.
-- Frame ranges from the spec are authoritative. Do not adjust timing in the build.
-- Transitions between beats: implement as overlap. Beat N's exit and Beat N+1's entrance share frames.
-- If the spec says "crossfade over 15 frames," both beats render during those 15 frames with opposing opacity interpolations.
+- The spec's beat durations are approximate. Calculate exact frame ranges from them.
+- Use `<TransitionSeries>` for scene transitions. No hard cuts unless the spec specifically calls for one.
+- Write timing in seconds x fps for readability: `2 * 30` not `60`.
 
 ---
 
 ## Remotion API Reference
 
-For all Remotion APIs (animations, timing, sequencing, transitions, fonts, audio, charts, etc.), see the bundled skill:
+For all Remotion APIs, see the bundled skill:
 - `../../skills/remotion-best-practices/SKILL.md` -- index of all rule files
-- `../../skills/remotion-best-practices/rules/animations.md` -- core animation patterns
-- `../../skills/remotion-best-practices/rules/timing.md` -- interpolation and spring physics
-- `../../skills/remotion-best-practices/rules/sequencing.md` -- Sequence nesting and staggering
-- `../../skills/remotion-best-practices/rules/transitions.md` -- scene transitions
+- Load `rules/timing.md`, `rules/sequencing.md`, `rules/transitions.md` for every build
+- Load other rule files as needed (fonts, audio, charts, text animations, light leaks)
 
-Read individual rule files as needed for specific topics (fonts, audio, charts, text animations, etc.).
+Do not hand-code what a Remotion package already does. Check `@remotion/paths`, `@remotion/transitions`, `@remotion/light-leaks` before writing custom implementations.
 
 ---
 

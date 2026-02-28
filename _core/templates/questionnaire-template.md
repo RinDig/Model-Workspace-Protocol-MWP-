@@ -16,7 +16,11 @@
      5. SENSIBLE DEFAULTS: Every question should have a default or example so the user
         can skip what they don't care about.
      6. ASK ONCE, NEVER AGAIN: After setup, the user should never be asked these questions
-        again. The answers are baked into the workspace files permanently. -->
+        again. The answers are baked into the workspace files permanently.
+     7. EXAMPLES OVER DESCRIPTIONS: For voice/style questions, ask for concrete examples
+        (sentences that sound right, sentences that sound wrong, specific error patterns)
+        rather than abstract descriptions. Examples are pattern-matchable. Descriptions
+        require interpretation and produce weaker constraints. -->
 
 ### Q1: [Question text]
 - Placeholder: `{{PLACEHOLDER_NAME}}`

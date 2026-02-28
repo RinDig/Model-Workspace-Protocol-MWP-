@@ -4,38 +4,39 @@ How {{BRAND_NAME}} writes and talks. Load this before writing any script.
 
 ---
 
-## Voice Overview
+## Hard Constraints
 
-{{BRAND_NAME}} sounds {{VOICE_DESCRIPTION}}.
+These are errors. If the output contains any of these, rewrite.
 
-The core adjectives: {{VOICE_ADJECTIVES}}.
-
-Everything below flows from this. If a line could come from any brand, it does not sound like {{BRAND_NAME}}.
+1. {{VOICE_HARD_CONSTRAINT_1}}
+2. {{VOICE_HARD_CONSTRAINT_2}}
+3. {{VOICE_HARD_CONSTRAINT_3}}
+4. Filler transitions. "Now let's talk about..." / "This brings us to..." / "With that in mind..." Just start the next thought.
+5. Clean summaries at the end of sections. If the section was clear, the recap is redundant.
+6. Hype language. "Cutting edge," "game changing," "revolutionary," or any marketing-speak.
 
 ---
 
-## Voice Rules
+## Sentence Rules
 
-These are the rules agents load when writing content.
+Do/Don't pairs with verbatim examples. The right column is the target. The wrong column is the pattern to catch and rewrite.
 
-**Rule 1: Tone.** {{VOICE_TONE_RULE}}
+| Wrong | Right |
+|-------|-------|
+| {{VOICE_WRONG_EXAMPLE_1}} | {{VOICE_RIGHT_EXAMPLE_1}} |
+| {{VOICE_WRONG_EXAMPLE_2}} | {{VOICE_RIGHT_EXAMPLE_2}} |
+| "They invested significant time in infrastructure development." | "They spent six months building a custom pipeline." |
+| "The commoditization of basic services has accelerated." | Use a specific example instead of the abstraction. |
 
-Do this: Write as if you are explaining something fascinating to someone who will get it.
-Not this: Write as if you are lecturing a student or selling to a customer.
+**Default structure:** Short declarative sentences. Fragments are fine. Longer sentences show up when walking through a thought. They should feel like someone talking, not someone writing.
 
-**Rule 2: Sentence Structure.** Default to short declarative sentences. Fragments are fine. Longer sentences show up when walking through a thought -- they should feel like someone talking, not someone writing.
+---
 
-Do this: "Same story. Three layers. Each one harder to copy."
-Not this: "The same story, told across three layers of abstraction, becomes progressively harder to replicate."
+## Pacing
 
-**Rule 3: Specificity.** Always the concrete example before the principle. Do not say the abstract version when a specific version exists. Specific numbers, specific actions, specific outcomes.
+{{VOICE_PACING_DESCRIPTION}}
 
-Do this: "They spent six months building a custom pipeline."
-Not this: "They invested significant time in infrastructure development."
-
-**Rule 4: Pacing.** Dense but not fast. Every sentence carries information. Nothing is there just to bridge between ideas. But not every sentence is a standout -- some sentences are setup. The rhythm alternates: setup, dense, dense, breath, dense.
-
-**Rule 5: Personality.** {{VOICE_PERSONALITY_MARKERS}}
+Dense but not fast. Every sentence carries information. Nothing is there just to bridge between ideas. But some sentences are setup. The rhythm alternates: setup, dense, dense, breath, dense. Not metronomic. Natural.
 
 ---
 
@@ -55,7 +56,7 @@ Good: "A company I was working with spent six months on this exact problem."
 Bad: "But what does this mean for the future of work?"
 Fine: "So what do you actually invest in?"
 
-**Not {{VOICE_ANTI_PATTERN_1}}.** {{VOICE_ANTI_PATTERN_DESCRIPTION_1}}
+**Not {{VOICE_ANTI_PATTERN}}.** {{VOICE_ANTI_PATTERN_DESCRIPTION}}
 
 ---
 
