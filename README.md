@@ -4,7 +4,7 @@ A folder structure that routes AI agents through multi-stage workflows. Each sta
 
 No code. No app. Markdown files are the instructions. Output folders are the state. The AI agent is the runtime. Your editor is the UI.
 
-**Created by [Jake Van Clief](https://github.com/arro1)**
+**Created by Jake Van Clief**
 
 ## What Problem This Solves
 
