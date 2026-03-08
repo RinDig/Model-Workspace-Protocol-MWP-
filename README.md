@@ -1,8 +1,8 @@
-# Model Workspace Protocol (MWP)
+# Interpreted Context Methdolog (ICM)
 
 Folder structure as agent architecture.
 
-MWP replaces framework-level orchestration with filesystem structure. Numbered folders represent stages. Markdown files carry the prompts and context that tell a single AI agent what role to play at each step. The result is a system where one agent, reading the right files at the right moment, does the work that would otherwise require a multi-agent framework.
+ICM replaces framework-level orchestration with filesystem structure. Numbered folders represent stages. Markdown files carry the prompts and context that tell a single AI agent what role to play at each step. The result is a system where one agent, reading the right files at the right moment, does the work that would otherwise require a multi-agent framework.
 
 **Created by Jake Van Clief**
 
