@@ -8,7 +8,7 @@ This file is a pointer, not a copy. Do not duplicate content from CONVENTIONS.md
 
 The most important conventions for building a new workspace:
 
-- **Five-layer routing**: CLAUDE.md (Layer 0) -> CONTEXT.md (Layer 1) -> Stage CONTEXT.md (Layer 2) -> Reference material (Layer 3) -> Working artifacts (Layer 4). Layer 3 is persistent context (design systems, voice rules, conventions). Layer 4 is per-run context (previous stage outputs, source material). See "Five-Layer Routing Architecture" in `/_core/CONVENTIONS.md`.
+- **Five-layer routing**: runtime entry file (Layer 0) -> CONTEXT.md (Layer 1) -> Stage CONTEXT.md (Layer 2) -> Reference material (Layer 3) -> Working artifacts (Layer 4). Layer 0 is usually `CLAUDE.md` or `AGENTS.md`. Layer 3 is persistent context (design systems, voice rules, conventions). Layer 4 is per-run context (previous stage outputs, source material). See "Five-Layer Routing Architecture" in `/_core/CONVENTIONS.md`.
 
 - **Stage contracts**: Every stage CONTEXT.md has Inputs, Process, Outputs sections. No exceptions. See "Pattern 1: Stage Contracts" in `/_core/CONVENTIONS.md`.
 
@@ -24,7 +24,7 @@ The most important conventions for building a new workspace:
 
 - **Tool prerequisites**: If stages need system-level tools (Node.js, Python, LibreOffice), write setup guides in the relevant stage's references/ folder. See "Pattern 7: Tool Prerequisites" in `/_core/CONVENTIONS.md`.
 
-- **Bundled skills**: Copy relevant Claude Code skills into skills/ folder. Skills provide domain knowledge (APIs, best practices, code examples) and can replace custom reference docs. Discover local skills and search GitHub during Stage 01. See "Pattern 9: Bundled Skills" in `/_core/CONVENTIONS.md`.
+- **Bundled skills**: Copy relevant skills into `skills/`. Skills provide domain knowledge (APIs, best practices, code examples) and can replace custom reference docs. Discover local skills and search GitHub during Stage 01. See "Pattern 9: Bundled Skills" in `/_core/CONVENTIONS.md`.
 
 - **Specs are contracts**: Specification stages define WHAT and WHEN, not HOW. No component names, frame numbers, or prop definitions in specs. The build stage has creative freedom within the quality floor. See "Pattern 10: Specs Are Contracts" in `/_core/CONVENTIONS.md`.
 

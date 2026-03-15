@@ -37,12 +37,14 @@ Five ideas, each borrowed from established practice.
 Agents read down five layers and stop when they have what they need.
 
 ```
-Layer 0: CLAUDE.md           "Where am I?"            Always loaded (~800 tokens)
+Layer 0: Runtime entry file  "Where am I?"            Loaded first (~800 tokens)
 Layer 1: CONTEXT.md          "Where do I go?"          Read on entry (~300 tokens)
 Layer 2: Stage CONTEXT.md    "What do I do?"            Read per-task (~200-500 tokens)
 Layer 3: Reference material  "What rules apply?"        Loaded selectively (varies)
 Layer 4: Working artifacts   "What am I working with?"  Loaded selectively (varies)
 ```
+
+Today the repo ships `CLAUDE.md` for Claude Code and `AGENTS.md` for Codex-style agents. Both point into the same workspace structure.
 
 Layers 3 and 4 are both content the agent loads while executing a stage, but they represent different kinds of context. Layer 3 is reference material -- design systems, voice rules, build conventions, domain knowledge. These files are configured once during setup and stay the same across every run. They are the factory. Layer 4 is working artifacts -- previous stage output, user-provided source material, anything specific to this run. These change every time.
 
@@ -153,11 +155,12 @@ It is worth distinguishing ICM from Anthropic's Model Context Protocol (MCP). MC
 
 1. Clone this repo
 2. `cd workspaces/script-to-animation` (or any workspace)
-3. Open [Claude Code](https://docs.anthropic.com/en/docs/claude-code)
-4. Type `setup`
-5. Answer the onboarding questions -- all at once, one pass
-6. Your answers populate across the workspace files
-7. Start producing -- give the agent a topic and walk through the stages
+3. Open the workspace with your agent runtime
+4. Start from the runtime entry file (`CLAUDE.md` for Claude Code, `AGENTS.md` for Codex-style agents)
+5. Type `setup`
+6. Answer the onboarding questions -- all at once, one pass
+7. Your answers populate across the workspace files
+8. Start producing -- give the agent a topic and walk through the stages
 
 Each stage produces an output file. You can edit that file before moving on. The next stage reads whatever you left there.
 
@@ -174,7 +177,7 @@ Each stage produces an output file. You can edit that file before moving on. The
 The workspace-builder is a workspace whose output is a new workspace. It follows ICM conventions to produce workspaces that follow ICM conventions.
 
 1. `cd workspaces/workspace-builder`
-2. Type `setup` to describe your domain
+2. Start from `CLAUDE.md` or `AGENTS.md`, then type `setup` to describe your domain
 3. Walk through the five stages: discovery, mapping, scaffolding, questionnaire design, and validation
 4. The output is a complete, ready-to-use workspace
 

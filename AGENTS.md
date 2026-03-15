@@ -6,8 +6,8 @@ MWP is a framework for building structured, multi-stage AI workflows out of mark
 
 ```
 model-workspace-protocol/
+├── AGENTS.md                          (you are here)
 ├── CLAUDE.md                          (Claude Code entrypoint)
-├── AGENTS.md                          (Codex-style entrypoint)
 ├── README.md                          (project overview)
 ├── LICENSE
 ├── _core/                             (shared conventions and templates)
@@ -24,12 +24,12 @@ model-workspace-protocol/
 
 | You want to... | Go to |
 |-----------------|-------|
-| Create content with script-to-animation | `workspaces/script-to-animation/CLAUDE.md` or `workspaces/script-to-animation/AGENTS.md` |
-| Build course slide decks from source material | `workspaces/course-deck-production/CLAUDE.md` or `workspaces/course-deck-production/AGENTS.md` |
-| Build a new workspace for any domain | `workspaces/workspace-builder/CLAUDE.md` or `workspaces/workspace-builder/AGENTS.md` |
-| Read the full MWP specification | `_core/CONVENTIONS.md` |
-| Understand the placeholder system | `_core/placeholder-syntax.md` |
-| Use a template for a new workspace | `_core/templates/` |
+| Create content with script-to-animation | `workspaces/script-to-animation/AGENTS.md` |
+| Build course slide decks from source material | `workspaces/course-deck-production/AGENTS.md` |
+| Build a new workspace for any domain | `workspaces/workspace-builder/AGENTS.md` |
+| Read the full MWP specification | `/_core/CONVENTIONS.md` |
+| Understand the placeholder system | `/_core/placeholder-syntax.md` |
+| Use a template for a new workspace | `/_core/templates/` |
 
 ## Triggers
 
@@ -40,4 +40,4 @@ model-workspace-protocol/
 
 ## How It Works
 
-Each workspace is self-contained with its own runtime entry files. Use `CLAUDE.md` in Claude Code or `AGENTS.md` in Codex-style runtimes. You do not need to keep reading this root file once you are inside a workspace.
+Each workspace is self-contained with its own `AGENTS.md` and `CLAUDE.md`. Use the file that matches your runtime, then follow its routing table into `CONTEXT.md` and the stage contracts.

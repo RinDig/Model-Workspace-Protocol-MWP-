@@ -1,13 +1,13 @@
 # Workspace Builder
 
-This workspace guides you through building a new MWP workspace for any domain -- from understanding the workflow through generating a complete, validated workspace scaffold.
+This workspace guides you through building a new MWP workspace for any domain, from understanding the workflow through generating a complete, validated workspace scaffold.
 
 ## Folder Map
 
 ```
 workspace-builder/
+├── AGENTS.md              (you are here)
 ├── CLAUDE.md              (Claude Code entrypoint)
-├── AGENTS.md              (Codex-style entrypoint)
 ├── CONTEXT.md             (start here for task routing)
 ├── setup/
 │   └── questionnaire.md   (onboarding -- asks about the domain you are building for)
@@ -32,7 +32,7 @@ workspace-builder/
 
 ### How `status` works
 
-Scan `stages/*/output/` folders. For each stage, if the output folder contains files (other than .gitkeep), the stage is COMPLETE. Otherwise PENDING. Render:
+Scan `stages/*/output/` folders. For each stage, if the output folder contains files (other than `.gitkeep`), the stage is COMPLETE. Otherwise PENDING. Render:
 
 ```
 Pipeline Status: workspace-builder

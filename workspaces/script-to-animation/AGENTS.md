@@ -1,13 +1,13 @@
 # Script-to-Animation
 
-This workspace guides you from a content idea through script writing, animation specification, and build -- one stage at a time.
+This workspace guides you from a content idea through script writing, animation specification, and build, one stage at a time.
 
 ## Folder Map
 
 ```
 script-to-animation/
+├── AGENTS.md              (you are here)
 ├── CLAUDE.md              (Claude Code entrypoint)
-├── AGENTS.md              (Codex-style entrypoint)
 ├── CONTEXT.md             (start here for task routing)
 ├── setup/
 │   └── questionnaire.md   (onboarding -- run with "setup")
@@ -44,7 +44,7 @@ script-to-animation/
 
 ### How `status` works
 
-Scan `stages/*/output/` folders. For each stage, if the output folder contains files (other than .gitkeep), the stage is COMPLETE. Otherwise it is PENDING. Render:
+Scan `stages/*/output/` folders. For each stage, if the output folder contains files (other than `.gitkeep`), the stage is COMPLETE. Otherwise it is PENDING. Render:
 
 ```
 Pipeline Status: script-to-animation

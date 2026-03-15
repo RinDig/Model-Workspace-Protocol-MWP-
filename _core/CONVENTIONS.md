@@ -9,14 +9,14 @@ The rules for building and maintaining MWP workspaces. This is the canonical sou
 Agents read down the layers. They stop as soon as they have what they need.
 
 ```
-Layer 0: CLAUDE.md           -> "Where am I?"            (always loaded, ~800 tokens)
+Layer 0: Runtime entry file  -> "Where am I?"            (loaded first, ~800 tokens)
 Layer 1: CONTEXT.md          -> "Where do I go?"          (read on entry, ~300 tokens)
 Layer 2: Stage CONTEXT.md    -> "What do I do?"            (read per-task, ~200-500 tokens)
 Layer 3: Reference material  -> "What rules apply?"        (loaded selectively, varies)
 Layer 4: Working artifacts   -> "What am I working with?"  (loaded selectively, varies)
 ```
 
-**Layer 0 -- CLAUDE.md** is auto-loaded by Claude Code into every conversation. It contains the folder map, naming conventions, and a routing table that points to workspace-level files. One per workspace.
+**Layer 0 -- Runtime entry file** contains the folder map, naming conventions, trigger keywords, and a routing table that points to workspace-level files. Support the runtime you actually target. Today that means `CLAUDE.md` for Claude Code and `AGENTS.md` for Codex-style agents. A workspace can ship both side by side.
 
 **Layer 1 -- Top-level CONTEXT.md** is the first thing an agent reads when entering the workspace. It contains a task routing table that maps task types to specific stage folders. One per workspace.
 
@@ -30,7 +30,7 @@ The distinction between Layers 3 and 4 matters because they require different th
 
 A rendering agent might only need Layers 0 through 2. A script-writing agent reads down to Layer 4 to access both voice rules (Layer 3) and source material (Layer 4). No agent reads everything.
 
-Every token of irrelevant context is a token of diluted attention. Workspace CLAUDE.md files should explicitly map each task to its minimal required files. Loading more context does not make output better. It makes it worse.
+Every token of irrelevant context is a token of diluted attention. Runtime entry files should explicitly map each task to its minimal required files. Loading more context does not make output better. It makes it worse.
 
 ---
 
@@ -159,7 +159,7 @@ Pipeline Status: [workspace-name]
 
 For each stage: if the output folder contains files (other than .gitkeep), the stage is COMPLETE and the filenames are listed. If the output folder is empty or contains only .gitkeep, the stage is PENDING.
 
-Workspaces can define additional trigger keywords in their own CLAUDE.md.
+Workspaces can define additional trigger keywords in their own runtime entry files.
 
 ---
 
@@ -190,7 +190,7 @@ The questionnaire template at `_core/templates/questionnaire-template.md` encode
 
 ## Pattern 9: Bundled Skills
 
-Workspaces can bundle Claude Code skills directly into a `skills/` folder. This gives agents domain-specific knowledge (APIs, best practices, code examples) without requiring the user to have the skills installed globally.
+Workspaces can bundle skills directly into a `skills/` folder. This gives agents domain-specific knowledge (APIs, best practices, code examples) without requiring the user to have the skills installed globally.
 
 ```
 workspace/
@@ -218,7 +218,7 @@ workspace/
 
 Skills replace custom reference docs when an official skill covers the same ground. Keep workspace-specific files (design systems, brand config, build conventions) alongside skills, not inside them.
 
-**When NOT to bundle:** Do not bundle skills that are purely about Claude Code itself (e.g., skill-creator, mcp-builder). Only bundle skills that provide domain knowledge the workspace's agents need at runtime.
+**When NOT to bundle:** Do not bundle skills that are purely about a specific coding assistant itself (for example skill-creator or mcp-builder). Only bundle skills that provide domain knowledge the workspace's agents need at runtime.
 
 ---
 

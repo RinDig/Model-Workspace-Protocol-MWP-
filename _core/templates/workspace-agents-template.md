@@ -6,7 +6,7 @@
 
 ```
 [workspace-name]/
-├── CLAUDE.md          (you are here)
+├── AGENTS.md          (you are here)
 ├── CONTEXT.md         (start here for task routing)
 ├── setup/             (onboarding questionnaire)
 ├── skills/            (bundled skills for domain knowledge)

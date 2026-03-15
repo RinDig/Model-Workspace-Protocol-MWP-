@@ -1,13 +1,13 @@
 # Course Deck Production
 
-A production system for turning unstructured source material (PDFs, papers, notes, scripts) into polished PowerPoint slide decks. Run `setup` once to configure your identity and design. Then start a new course anytime -- just provide source material and a topic.
+A production system for turning unstructured source material (PDFs, papers, notes, scripts) into polished PowerPoint slide decks. Run `setup` once to configure your identity and design. Then start a new course anytime, just provide source material and a topic.
 
 ## Folder Map
 
 ```
 course-deck-production/
+├── AGENTS.md              (you are here)
 ├── CLAUDE.md              (Claude Code entrypoint)
-├── AGENTS.md              (Codex-style entrypoint)
 ├── CONTEXT.md             (start here for task routing)
 ├── setup/
 │   └── questionnaire.md   (one-time onboarding -- identity and design)
@@ -38,7 +38,7 @@ course-deck-production/
 
 ### How `status` works
 
-Scan `stages/*/output/` folders. For each stage, if the output folder contains files (other than .gitkeep), the stage is COMPLETE. Otherwise PENDING. Render:
+Scan `stages/*/output/` folders. For each stage, if the output folder contains files (other than `.gitkeep`), the stage is COMPLETE. Otherwise PENDING. Render:
 
 ```
 Pipeline Status: course-deck-production

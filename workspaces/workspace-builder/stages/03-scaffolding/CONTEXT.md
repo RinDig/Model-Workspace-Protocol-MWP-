@@ -9,7 +9,8 @@ Generate the complete workspace folder structure, CONTEXT.md files, and placehol
 | Previous stage | `../02-mapping/output/stage-contracts.md` | Full file | The contracts to implement as folders and files |
 | Discovery output | `../01-discovery/output/workflow-map.md` | "Tool Prerequisites" and "Selected Skills" sections | Tools that need setup guides, skills to bundle |
 | Template | `/_core/templates/stage-context-template.md` | Full file | Template for stage CONTEXT.md files (includes Checkpoints and Audit sections) |
-| Template | `/_core/templates/workspace-claude-template.md` | Full file | Template for the workspace CLAUDE.md (includes What to Load section) |
+| Template | `/_core/templates/workspace-claude-template.md` | Full file | Template for the workspace `CLAUDE.md` |
+| Template | `/_core/templates/workspace-agents-template.md` | Full file | Template for the workspace `AGENTS.md` |
 | Template | `/_core/templates/workspace-context-template.md` | Full file | Template for the workspace CONTEXT.md |
 | Syntax | `/_core/placeholder-syntax.md` | Full file | How to write placeholder variables |
 
@@ -17,7 +18,7 @@ Generate the complete workspace folder structure, CONTEXT.md files, and placehol
 
 1. Read the stage contracts from mapping output
 2. Create the workspace folder structure:
-   - Root: CLAUDE.md, CONTEXT.md, setup/
+   - Root: CLAUDE.md, AGENTS.md, CONTEXT.md, setup/
    - Context folder (brand-vault or domain equivalent) with its own CONTEXT.md
    - stages/ with one numbered subfolder per stage, each containing CONTEXT.md, output/, and references/
    - shared/ for cross-stage reference files
@@ -26,7 +27,7 @@ Generate the complete workspace folder structure, CONTEXT.md files, and placehol
    - **Checkpoints:** Does this stage benefit from human steering between steps? Creative stages (writing, design, ideation) should have at least one checkpoint. Linear stages (extract, render, validate) can skip the section.
    - **Audit:** Does this stage need quality checks before output is written? Creative and build stages should have an audit table with specific pass conditions. Data extraction or file conversion stages can skip the section.
    - Delete the Checkpoints or Audit sections from the template if the stage does not need them.
-4. Create the workspace CLAUDE.md using the template: folder map, triggers, routing table, and What to Load section mapping each task to its minimal file set
+4. Create the workspace `CLAUDE.md` and `AGENTS.md` using the templates: folder map, triggers, routing table, and What to Load section mapping each task to its minimal file set
 5. Create the workspace CONTEXT.md using the template: task routing table, shared resources
 6. Create placeholder reference files for each stage with `{{PLACEHOLDER}}` variables for user-specific content
 7. For content-producing workspaces, create a value framework reference file (see Pattern 13)
