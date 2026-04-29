@@ -1,0 +1,17 @@
+# Output directories (keep .gitkeep only)
+stages/*/output/*
+!stages/*/output/.gitkeep
+
+# Archive (keep structure only)
+archive/*/*
+!archive/*/.gitkeep
+
+# IDE/Editor
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Claude
+.claude/settings.local.json
