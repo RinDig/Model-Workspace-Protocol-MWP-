@@ -34,6 +34,16 @@ Five ideas, each borrowed from established practice.
 
 **Configure the factory, not the product.** A workspace is set up once with the user's preferences, brand, style, and structural decisions. After that, each run of the pipeline produces a new deliverable using the same configuration.
 
+### The Why Underneath
+
+The five principles above describe the architecture. Three principles underneath describe what the architecture is for:
+
+1. **Dialogue is the control mechanism.** A person talking to one agent and editing the files in `output/` folders. Not orchestration code, not agent-to-agent negotiation.
+2. **Code does what is mechanical. Dialogue does what is judgment.** Deterministic operations live in `scripts/`. Taste, redirection, and context live in Process steps and Checkpoints.
+3. **Audits are earned, not invented.** A stage's Audit table contains checks that come from real failures in real runs, not from imagination.
+
+For the full version of these (with smell tests, the test for what belongs where, and how to bootstrap a workspace that has no run history yet), see [`_core/principles.md`](_core/principles.md). The workspace-builder uses these three as discovery questions, so every new workspace inherits them at birth.
+
 ## How It Works
 
 Agents read down five layers and stop when they have what they need.
