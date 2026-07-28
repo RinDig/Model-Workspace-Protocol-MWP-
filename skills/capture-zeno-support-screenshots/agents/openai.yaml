@@ -1,0 +1,4 @@
+interface:
+  display_name: "Capture Zeno Support Screenshots"
+  short_description: "Capture and approve safe support screenshots"
+  default_prompt: "Use $capture-zeno-support-screenshots to capture and review approved Zeno support article screenshots."

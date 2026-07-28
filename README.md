@@ -163,6 +163,29 @@ It is worth distinguishing ICM from Anthropic's Model Context Protocol (MCP). MC
 
 Each stage produces an output file. You can edit that file before moving on. The next stage reads whatever you left there.
 
+## Zeno Support Skills
+
+The repository vendors the complete Zeno Support Centre skill workflow under [`skills/`](skills/), including automated screenshot capture from a synthetic demo tenant:
+
+```text
+approved article → capture plan → demo screenshots → local approval
+→ text-only Intercom draft → manual editor insertion → read-back reconciliation
+```
+
+Validate the packaged skills without changing the installed copies:
+
+```bash
+python3 scripts/install_support_skills.py --dry-run
+```
+
+Install them into `~/.codex/skills`:
+
+```bash
+python3 scripts/install_support_skills.py
+```
+
+The installer validates every skill, stages byte-exact copies, backs up existing versions under `~/.codex/skills/.backups/`, and replaces each managed skill atomically. Screenshot capture and review artifacts stay under the gitignored `.context/` directory; canonical PNGs remain in the configured local article store.
+
 ## Available Workspaces
 
 | Workspace | What it does | Stages |

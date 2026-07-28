@@ -1,0 +1,4 @@
+interface:
+  display_name: "Draft Intercom Articles"
+  short_description: "Own HTML and stage legally cleared drafts"
+  default_prompt: "Use $draft-intercom-articles to confirm Legal suitability, refresh article state, prepare canonical local HTML, open a hash-bound side-by-side comparison, and stage an explicitly approved Intercom draft."

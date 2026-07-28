@@ -9,6 +9,9 @@ workspaces/workspace-builder/stages/*/output/*
 # Claude Code local settings
 .claude/
 
+# Conductor/Codex local review and capture artifacts
+.context/
+
 # Node dependencies
 node_modules/
 

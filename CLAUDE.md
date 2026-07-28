@@ -29,6 +29,9 @@ model-workspace-protocol/
 | Read the full MWP specification | `_core/CONVENTIONS.md` |
 | Understand the placeholder system | `_core/placeholder-syntax.md` |
 | Use a template for a new workspace | `_core/templates/` |
+| Manage or draft Zeno support content | `skills/manage-zeno-support-content/SKILL.md` |
+| Capture Zeno support screenshots | `skills/capture-zeno-support-screenshots/SKILL.md` |
+| Install the vendored support skills | `scripts/install_support_skills.py` |
 
 ## Triggers
 

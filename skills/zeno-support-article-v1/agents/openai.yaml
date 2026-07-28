@@ -1,0 +1,4 @@
+interface:
+  display_name: "Zeno Support Article V1"
+  short_description: "Write legally gated Zeno support handoffs"
+  default_prompt: "Use $zeno-support-article-v1 to verify Legal suitability and turn this content brief into a review-ready Zeno article and staging handoff."

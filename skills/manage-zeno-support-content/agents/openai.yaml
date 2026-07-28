@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage Zeno Support Content"
+  short_description: "Coordinate gated Zeno drafts across threads"
+  default_prompt: "Use $manage-zeno-support-content to claim work safely across concurrent threads, run the Legal suitability test, prepare Zeno support content, and stage only an approved Intercom draft."
