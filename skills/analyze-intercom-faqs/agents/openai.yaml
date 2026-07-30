@@ -1,0 +1,4 @@
+interface:
+  display_name: "Analyze Intercom FAQs"
+  short_description: "Find grounded FAQ gaps in closed chats"
+  default_prompt: "Use $analyze-intercom-faqs to find reusable FAQ gaps in closed Intercom conversations and return separate drafting handoffs."

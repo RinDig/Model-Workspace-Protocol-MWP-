@@ -1,0 +1,23 @@
+# Vendored support-skill baseline
+
+ANL-253 began from the exact installed `~/.codex/skills` copies on 2026-07-28. No files were copied from another Conductor workspace. These hashes record the pre-change baseline:
+
+```text
+e81bedf15ae00ea1fb4ed67d71b16b6259689d5b45d2ec4fb4c63ff1cccf5ad0  analyze-intercom-faqs/SKILL.md
+5cf8dddc3d9a0bc50d7c7293ceecfdef4cf6b3a771630aec0e6c762cb6e3c414  analyze-intercom-faqs/agents/openai.yaml
+7303a7d4b72df322408f274dcf79efb09c503d912e01e7345d05cd83adc925d5  draft-intercom-articles/SKILL.md
+6c1c21b9fdc772e175f88a22fedb8c8cd42552d1eed362ac024348b135253cd7  draft-intercom-articles/agents/openai.yaml
+082f97ce06605a62e2b50ffe468cea380c21730b7278c520f6236484850e78da  draft-intercom-articles/references/current-state-contract.md
+0efed6b8dd9c7a8bc4498ecb076df47c04a50db3c7af4b922076f100c4dc83ba  draft-intercom-articles/references/local-comparison-contract.md
+43e9e9d06ba437617faf9e2ef6d69636088f2483345017a753168c10d32e2c17  draft-intercom-articles/references/mcp-article-contract.md
+351b1aaeff816971e988cad235704aa5fd0bb7bb3b15e47d684a2b63bf31d63a  draft-intercom-articles/scripts/intercom_articles.py
+059a900cc22cd5dd6d7a39f990b4ee6e5b4ce7e7dce881088697d6ca94a43b5e  draft-intercom-articles/tests/test_accessible_comparison.py
+0a630158088c37ec86e7f382647b4ac7e15d6058f251f81a1829be789db51732  draft-intercom-articles/tests/test_html_equivalence.py
+38f8c94478116a0ac5acbfcd189cee78d1ffa6616152086fe72ebdde2e14ee54  manage-zeno-support-content/SKILL.md
+3eeeed9a60874a73952b4ba4374a8aca5515b0fa1384255f725f8dc2caa5b3b9  manage-zeno-support-content/agents/openai.yaml
+f16ddc62a41c359dc8a13f8e0d566ef38dd5b7888e204990b0dde1ac085c3fd4  manage-zeno-support-content/scripts/review_claims.py
+479b89d30489b40f4a1f3f86e188f49dd0abc891c90fa184183b29b2a71b4f1a  manage-zeno-support-content/tests/test_skill_contracts.py
+142bcfccf5a19375d06841a7f3a4b9a1390720c8f27b811d9871e80e28a83619  zeno-support-article-v1/SKILL.md
+6827ab7e1c86e08002e7ae6b7095383b5d4cd9d30d86e25213165ee2fe1f41d6  zeno-support-article-v1/agents/openai.yaml
+941c7f2d5fd8b992e7b562ea5ccfb43ecbdfd41506caeec7b6cbbae27ceaaebc  zeno-support-article-v1/references/style-profile.md
+```
