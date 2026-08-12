@@ -251,7 +251,7 @@ Every workspace follows 15 patterns defined in [`_core/CONVENTIONS.md`](_core/CO
 
 ICM grew out of a [content production system](https://github.com/RinDig/Content-Agent-Routing-Promptbase) that applies separation of concerns to AI context windows instead of code modules. That system runs a full content operation: scripting, animation specs, Remotion builds, brand management. ICM is the general-purpose version -- the structural patterns extracted so anyone can scaffold their own workflows.
 
-For the academic treatment, see [Model Workspace Protocol: Folder Structure as Agent Architecture](link-to-paper) (Van Clief, 2026).
+For the academic treatment, see [Model Workspace Protocol: Folder Structure as Agent Architecture](https://arxiv.org/abs/2603.16021v1) (Van Clief, 2026).
 
 ## License
 
