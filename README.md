@@ -169,6 +169,7 @@ Each stage produces an output file. You can edit that file before moving on. The
 |-----------|-------------|--------|
 | [script-to-animation](workspaces/script-to-animation/) | Content idea through script writing, animation spec, and Remotion code | 3 |
 | [course-deck-production](workspaces/course-deck-production/) | Unstructured material (PDFs, papers, notes) into polished PowerPoint slide decks | 5 |
+| [voice-driven-animation](workspaces/voice-driven-animation/) | Narrated explainer video where recorded VO is the timeline: research, script, voice, animation, render | 5 |
 | [workspace-builder](workspaces/workspace-builder/) | Build a new ICM workspace for any domain | 5 |
 
 ## Build Your Own Workspace
