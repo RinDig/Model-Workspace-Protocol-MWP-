@@ -12,6 +12,10 @@ workspaces/workspace-builder/stages/*/output/*
 # Node dependencies
 node_modules/
 
+# Python bytecode
+__pycache__/
+*.pyc
+
 # OS files
 .DS_Store
 Thumbs.db

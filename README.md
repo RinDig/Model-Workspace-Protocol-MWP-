@@ -72,14 +72,14 @@ workspace/
       CONTEXT.md
       references/
       output/
-  _config/                  # Layer 3: brand, voice, design system
+  brand-vault/              # Layer 3: brand, voice, design system (name varies)
   shared/                   # Layer 3: cross-stage resources
   skills/                   # Layer 3: bundled domain knowledge
   setup/
     questionnaire.md        # One-time onboarding
 ```
 
-The numbering encodes execution order. The folder boundaries enforce separation of concerns. The `output/` directories are the Layer 4 handoff points: the output of stage 01 becomes available as input to stage 02. If a human edits a file in `01-research/output/` before running stage 02, the agent picks up the edited version. The `references/` directories and `_config/` folder hold Layer 3 material -- stable knowledge that persists across runs.
+The numbering encodes execution order. The folder boundaries enforce separation of concerns. The `output/` directories are the Layer 4 handoff points: the output of stage 01 becomes available as input to stage 02. If a human edits a file in `01-research/output/` before running stage 02, the agent picks up the edited version. The `references/` directories and the workspace-level config folder (`brand-vault/`, `design-system/`) hold Layer 3 material -- stable knowledge that persists across runs.
 
 Layer 2 is the control point. Each stage contract includes an Inputs table that specifies exactly which files from Layers 3 and 4 to load, and which sections of those files are relevant. Without this scoping, an agent would either load everything or guess. The Inputs table makes the selection explicit, editable, and auditable.
 
