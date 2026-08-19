@@ -7,7 +7,7 @@ Turn the workflow map into formal stage contracts and verify the dependency grap
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
 | Previous stage | `../01-discovery/output/workflow-map.md` | Full file | The workflow to formalize |
-| Core conventions | `/_core/CONVENTIONS.md` | "Pattern 1: Stage Contracts" and "Pattern 3: One-Way Cross-References" | The rules for writing contracts |
+| Core conventions | `../../../../_core/CONVENTIONS.md` | "Pattern 1: Stage Contracts" and "Pattern 3: One-Way Cross-References" | The rules for writing contracts |
 
 ## Process
 
