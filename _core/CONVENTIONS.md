@@ -1,6 +1,6 @@
-# MWP Conventions
+# ICM Conventions
 
-The rules for building and maintaining MWP workspaces. This is the canonical source. Every workspace follows these patterns.
+The rules for building and maintaining ICM workspaces. This is the canonical source. Every workspace follows these patterns.
 
 ---
 

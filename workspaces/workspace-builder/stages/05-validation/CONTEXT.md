@@ -1,6 +1,6 @@
 # Stage 05: Validation
 
-Verify the generated workspace against MWP conventions and fix any issues before the workspace ships.
+Verify the generated workspace against ICM conventions and fix any issues before the workspace ships.
 
 ## Inputs
 

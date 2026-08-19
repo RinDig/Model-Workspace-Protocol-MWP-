@@ -1,6 +1,6 @@
 # Workspace Builder
 
-This workspace guides you through building a new MWP workspace for any domain -- from understanding the workflow through generating a complete, validated workspace scaffold.
+This workspace guides you through building a new ICM workspace for any domain -- from understanding the workflow through generating a complete, validated workspace scaffold.
 
 ## Folder Map
 
@@ -15,9 +15,9 @@ workspace-builder/
 │   ├── 02-mapping/        (formalize stage contracts and dependencies)
 │   ├── 03-scaffolding/    (generate the folder tree and files)
 │   ├── 04-questionnaire-design/  (build the onboarding questionnaire)
-│   └── 05-validation/     (verify against MWP conventions)
+│   └── 05-validation/     (verify against ICM conventions)
 └── references/
-    ├── conventions-reference.md   (pointer to core MWP conventions)
+    ├── conventions-reference.md   (pointer to core ICM conventions)
     └── examples/
         └── script-to-animation-summary.md  (completed workspace example)
 ```

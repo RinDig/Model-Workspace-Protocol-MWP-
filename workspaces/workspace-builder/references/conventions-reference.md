@@ -1,6 +1,6 @@
-# MWP Conventions Reference
+# ICM Conventions Reference
 
-The canonical MWP conventions live at `/_core/CONVENTIONS.md`. Read that file for the full specification.
+The canonical ICM conventions live at `/_core/CONVENTIONS.md`. Read that file for the full specification.
 
 This file is a pointer, not a copy. Do not duplicate content from CONVENTIONS.md here.
 

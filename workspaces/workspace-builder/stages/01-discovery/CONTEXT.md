@@ -7,7 +7,7 @@ Understand the domain workflow through conversation with the user.
 | Source | File/Location | Section/Scope | Why |
 |--------|--------------|---------------|-----|
 | User | (conversation) | Full workflow description | The domain to build a workspace for |
-| Reference | `../../references/conventions-reference.md` | Full file | Know the MWP patterns to discover toward |
+| Reference | `../../references/conventions-reference.md` | Full file | Know the ICM patterns to discover toward |
 | Reference | `../../references/examples/script-to-animation-summary.md` | Full file | Concrete example of a completed workspace |
 
 ## Process

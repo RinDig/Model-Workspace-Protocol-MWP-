@@ -1,6 +1,6 @@
 # Workspace Builder
 
-Build new MWP workspaces for any domain through a five-stage guided process.
+Build new ICM workspaces for any domain through a five-stage guided process.
 
 ## Task Routing
 
@@ -16,5 +16,5 @@ Build new MWP workspaces for any domain through a five-stage guided process.
 
 | Resource | Location | Contains |
 |----------|----------|----------|
-| MWP conventions | `references/conventions-reference.md` | Pointer to core conventions (the rules for building workspaces) |
+| ICM conventions | `references/conventions-reference.md` | Pointer to core conventions (the rules for building workspaces) |
 | Completed example | `references/examples/script-to-animation-summary.md` | Summary of the script-to-animation workspace |

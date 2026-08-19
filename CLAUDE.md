@@ -1,11 +1,11 @@
-# Interpreted-Context-Methdology
+# Interpretable Context Methodology (ICM)
 
 ICM is a framework for building structured, multi-stage AI workflows out of markdown files and folder conventions. Each workspace gives AI agents the right context at each stage of a task, and gives humans clear edit surfaces between stages.
 
 ## Folder Map
 
 ```
-model-workspace-protocol/
+Interpretable-Context-Methodology/
 ├── CLAUDE.md                          (you are here)
 ├── README.md                          (project overview)
 ├── LICENSE
@@ -16,7 +16,7 @@ model-workspace-protocol/
 └── workspaces/
     ├── script-to-animation/           (content idea -> animated video)
     ├── course-deck-production/        (unstructured material -> course PowerPoints)
-    └── workspace-builder/             (builds new MWP workspaces)
+    └── workspace-builder/             (builds new ICM workspaces)
 ```
 
 ## Routing
@@ -26,7 +26,7 @@ model-workspace-protocol/
 | Create content with script-to-animation | `workspaces/script-to-animation/CLAUDE.md` |
 | Build course slide decks from source material | `workspaces/course-deck-production/CLAUDE.md` |
 | Build a new workspace for any domain | `workspaces/workspace-builder/CLAUDE.md` |
-| Read the full MWP specification | `_core/CONVENTIONS.md` |
+| Read the full ICM specification | `_core/CONVENTIONS.md` |
 | Understand the placeholder system | `_core/placeholder-syntax.md` |
 | Use a template for a new workspace | `_core/templates/` |
 
