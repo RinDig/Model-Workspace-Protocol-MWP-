@@ -8,10 +8,10 @@ Generate the complete workspace folder structure, CONTEXT.md files, and placehol
 |--------|--------------|---------------|-----|
 | Previous stage | `../02-mapping/output/stage-contracts.md` | Full file | The contracts to implement as folders and files |
 | Discovery output | `../01-discovery/output/workflow-map.md` | "Tool Prerequisites" and "Selected Skills" sections | Tools that need setup guides, skills to bundle |
-| Template | `/_core/templates/stage-context-template.md` | Full file | Template for stage CONTEXT.md files (includes Checkpoints and Audit sections) |
-| Template | `/_core/templates/workspace-claude-template.md` | Full file | Template for the workspace CLAUDE.md (includes What to Load section) |
-| Template | `/_core/templates/workspace-context-template.md` | Full file | Template for the workspace CONTEXT.md |
-| Syntax | `/_core/placeholder-syntax.md` | Full file | How to write placeholder variables |
+| Template | `../../../../_core/templates/stage-context-template.md` | Full file | Template for stage CONTEXT.md files (includes Checkpoints and Audit sections) |
+| Template | `../../../../_core/templates/workspace-claude-template.md` | Full file | Template for the workspace CLAUDE.md (includes What to Load section) |
+| Template | `../../../../_core/templates/workspace-context-template.md` | Full file | Template for the workspace CONTEXT.md |
+| Syntax | `../../../../_core/placeholder-syntax.md` | Full file | How to write placeholder variables |
 
 ## Process
 

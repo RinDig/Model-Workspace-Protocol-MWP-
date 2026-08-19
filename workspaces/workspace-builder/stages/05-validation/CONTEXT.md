@@ -8,8 +8,8 @@ Verify the generated workspace against MWP conventions and fix any issues before
 |--------|--------------|---------------|-----|
 | Scaffolding output | `../03-scaffolding/output/` | Entire generated workspace | The workspace to validate |
 | Questionnaire output | `../04-questionnaire-design/output/questionnaire.md` | Full file | Verify placeholder coverage |
-| Core conventions | `/_core/CONVENTIONS.md` | Full file | The rules to validate against |
-| Placeholder syntax | `/_core/placeholder-syntax.md` | Full file | Conditional section rules |
+| Core conventions | `../../../../_core/CONVENTIONS.md` | Full file | The rules to validate against |
+| Placeholder syntax | `../../../../_core/placeholder-syntax.md` | Full file | Conditional section rules |
 
 ## Process
 

@@ -8,8 +8,8 @@ Build the onboarding questionnaire that hydrates the new workspace's placeholder
 |--------|--------------|---------------|-----|
 | Discovery output | `../01-discovery/output/workflow-map.md` | "User-Specific Variables" section | Variables that need onboarding questions |
 | Scaffolding output | `../03-scaffolding/output/` | All files containing `{{PLACEHOLDER}}` patterns | Know where every placeholder lives |
-| Template | `/_core/templates/questionnaire-template.md` | Full file | Format and design rules to follow |
-| Syntax | `/_core/placeholder-syntax.md` | Full file | Placeholder and conditional section rules |
+| Template | `../../../../_core/templates/questionnaire-template.md` | Full file | Format and design rules to follow |
+| Syntax | `../../../../_core/placeholder-syntax.md` | Full file | Placeholder and conditional section rules |
 
 ## Process
 
