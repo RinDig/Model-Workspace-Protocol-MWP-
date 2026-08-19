@@ -1,6 +1,6 @@
 # Example Workspace: Script-to-Animation
 
-A condensed summary of the script-to-animation workspace. Use this as a reference when building new workspaces to understand what a completed MWP workspace looks like.
+A condensed summary of the script-to-animation workspace. Use this as a reference when building new workspaces to understand what a completed ICM workspace looks like.
 
 ---
 
